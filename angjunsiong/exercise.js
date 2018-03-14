@@ -21,7 +21,7 @@ quiz.question_00 = function() {
   //   Return true or false.
   // ----------------------------------------
   var counter = 0;
-  return 'Error: Question 01 not implemented';
+  return (false);
 };
 
 quiz.question_01 = function() {
@@ -29,7 +29,8 @@ quiz.question_01 = function() {
   //   QUESTION 01
   //   Return a string that says "Hi!"
   // ----------------------------------------
-  return 'Error: Question 01 not implemented';
+  
+  return ('Hi');
 };
 
 quiz.question_02 = function() {
@@ -37,7 +38,7 @@ quiz.question_02 = function() {
   //   QUESTION 02
   //   Return an array of objects
   // ----------------------------------------
-  return 'Error: Question 02 not implemented';
+  return [{a : 'a'},{b : 'b'},{c : 'c'}];
 };
 
 quiz.question_03 = function() {
@@ -47,7 +48,7 @@ quiz.question_03 = function() {
   //   Each object needs to have
   //   a 'name' and 'age' property
   // ----------------------------------------
-  return 'Error: Question 03 not implemented';
+  return [{name : 'Keyes', age: '1'},{name : 'Joy', age: '0'}];
 };
 
 quiz.question_04 = function(foo, bar) {
@@ -56,7 +57,13 @@ quiz.question_04 = function(foo, bar) {
   //   Return an object,
   //   each object property value must be a function
   // ----------------------------------------
-  return 'Error: Question 04 not implemented';
+  
+  function func1(){console.log("Hello")};
+  function func2(){console.log("Hello Again")};
+  
+  var x = {a : func1, b : func2};
+
+  return (x);
 };
 
 quiz.question_05 = function(someObject) {
@@ -65,7 +72,13 @@ quiz.question_05 = function(someObject) {
   //   Add the property 'age' to someObject
   //   Give 'age' any value you like.
   // ----------------------------------------
-  return 'Error: Question 05 not implemented';
+  
+  someObject = {name : 'Clara'};
+  someObject.age = "33";
+
+  //??? Do we create an object that adds age or we add age here?
+
+  return someObject;
 };
 
 // ----------------------------------------
@@ -80,7 +93,8 @@ quiz.question_06 = function(data, carName, model, doors, color) {
   // ---------------------------------------------------------------
 
   var carPrice = 0;
-  // TODO your code here
+
+  
 
   return carPrice;
 };
@@ -93,7 +107,10 @@ quiz.question_07 = function(data) {
   // ---------------------------------------------------------------
 
   var maxPricedCar = {};
-  // TODO your code here
+  
+  // for (i =0; i < data.car.BMW.length; i++){
+  //   max = data.car.BMW[i].price
+  // });
 
   return maxPricedCar;
 };
@@ -105,8 +122,10 @@ quiz.question_08 = function(data) {
   // Return the updated data
   // ---------------------------------------------------------------
 
-  // TODO your code here
+  // console.log(data.cars.Nissan)
 
+  data.cars.Honda = [{"model":"Civic", doors:4,price:18840}]
+  
   return data;
 };
 
@@ -126,9 +145,8 @@ quiz.question_09 = function(input) {
   // ---------------------------------------------------------------
 
   var obj = {};
-  input.forEach(function(/* TODO args */) {
-    // TODO your code here
-    // add name as key, time as value
+  input.forEach(function(name, time) {
+    obj.name = time;
   });
   return obj;
 };
@@ -144,13 +162,12 @@ quiz.question_10 = function(input) {
   // Example output: ['Bob']
   // ---------------------------------------------------------------
 
-  var res = input
-    .filter(function(/* TODO args */) {
-      // TODO your code here
+  var res = input.filter(value => {
+      return (value.time < 48.5);
     })
-    .map(function(/* TODO args */) {
-      // TODO your code here
-    });
+    // .map(function(/* TODO args */) {
+    //   // TODO your code here
+    // });
   return res;
 };
 
@@ -165,11 +182,18 @@ quiz.question_11 = function(input) {
   // Eample output: 'Bob, Sue'
   // ---------------------------------------------------------------
 
-  var res = input.reduce(
-    function(/* TODO args */) {
-      // TODO your code here
+  var res2 = input.filter(value => {
+    return (value.time < 48.5);
+  })
+
+  console.log
+
+  var res = res2.reduce(
+    function(acc, cur) {
+      console.log(cur.name)
+      return acc + cur.name;
     },
-    0 /* TODO set correct starting value */,
+    [],
   );
   return res;
 };
